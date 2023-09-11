@@ -11,7 +11,7 @@ water_data = pd.read_csv('water_potability.csv')
 loan_data = pd.read_csv('loan_pred.csv')
 
 
-def create_water_potability_model(data):
+def water_potability_model(data):
     st.subheader("Water Potability Prediction Model")
     
     X = data.drop('Potability', axis=1)
@@ -36,7 +36,7 @@ def create_water_potability_model(data):
     st.text("Classification Report:")
     st.text(report)
 
-def create_loan_prediction_model(data):
+def loan_prediction_model(data):
     st.subheader("Loan Approval Prediction Model")
     
     data = pd.get_dummies(data, columns=['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Property_Area'], 
@@ -80,10 +80,10 @@ def main():
         st.write("Use the sidebar on the left to navigate between different sections of this web app.")
         
     elif page == "Water Potability Model":
-        create_water_potability_model(water_data)
+        water_potability_model(water_data)
         
     elif page == "Loan Prediction Model":
-        create_loan_prediction_model(loan_data)
+        loan_prediction_model(loan_data)
 
 
 
